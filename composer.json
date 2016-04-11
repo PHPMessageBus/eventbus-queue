@@ -10,7 +10,8 @@
   ],
   "require": {
     "php": ">=7",
-    "nilportugues/uuid": "^1.0"
+    "nilportugues/uuid": "^1.0",
+    "nilportugues/messagebus" : "dev-master"
   },
   "require-dev": {
     "ext-redis" : "*",
