@@ -9,7 +9,7 @@ This package will provide you for the classes necessary to build:
 
 ## Installation
 
-In order to start using this project you require to install it using composer
+In order to start using this project you require to install it using [Composer](https://getcomposer.org):
 
 ```
 composer require nilportugues/eventbus-queue
