@@ -1,0 +1,44 @@
+{
+  "name": "nilportugues/eventbus-queue",
+  "description": "Event Bus Queue library. Allows implementing asynchronous Event Bus.",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Nil Portugués Calderó",
+      "email": "contact@nilportugues.com"
+    }
+  ],
+  "require": {
+    "php": ">=7"
+  },
+  "require-dev": {
+    "ext-redis" : "*",
+    "phpunit/phpunit": "5.*",
+    "fabpot/php-cs-fixer": "~1.9",
+    "predis/predis": "1.0.*",
+    "php-amqplib/php-amqplib": "2.6.*",
+    "pda/pheanstalk": "3.1.*",
+    "mongodb/mongodb": "1.0.*",
+    "doctrine/dbal": "2.5.*"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "autoload": {
+    "psr-4": {
+      "NilPortugues\\MessageBus\\EventBusQueue\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "NilPortugues\\Tests\\MessageBus\\EventBusQueue\\": "tests/"
+    }
+  },
+  "suggest": {
+    "ext-redis" : "To use the RedisQueue Adapter in the ProducerEventBus & EventBusWorker",
+    "predis/predis": "To use the Predis Adapter in the ProducerEventBus & EventBusWorker",
+    "php-amqplib/php-amqplib": "To use the AmqpQueue Adapter in the ProducerEventBus & EventBusWorker",
+    "pda/pheanstalk": "To use the BeanstalkdQueue Adapter in the ProducerEventBus & EventBusWorker",
+    "mongodb/mongodb": "to use the MongoQueue Adapter in the ProducerEventBus & EventBusWorker",
+    "doctrine/dbal": "To use the PdoQueue Adapter in the ProducerEventBus & EventBusWorker"
+  }
+}
