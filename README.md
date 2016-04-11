@@ -139,8 +139,8 @@ If you need to keep the consumer running forever use server scripts like [superv
 
 Contributions to the package are always welcome!
 
-* Report any bugs or issues you find on the [issue tracker](https://github.com/nilportugues/event-bus-queue/issues/new).
-* You can grab the source code at the package's [Git repository](https://github.com/nilportugues/event-bus-queue).
+* Report any bugs or issues you find on the [issue tracker](https://github.com/PHPMessageBus/event-bus-queue/issues/new).
+* You can grab the source code at the package's [Git repository](https://github.com/PHPMessageBus/event-bus-queue).
 
 
 ## Support
@@ -148,13 +148,13 @@ Contributions to the package are always welcome!
 Get in touch with me using one of the following means:
 
  - Emailing me at <contact@nilportugues.com>
- - Opening an [Issue](https://github.com/nilportugues/event-bus-queue/issues/new)
+ - Opening an [Issue](https://github.com/PHPMessageBus/event-bus-queue/issues/new)
 
 
 ## Authors
 
 * [Nil Portugués Calderó](http://nilportugues.com)
-* [The Community Contributors](https://github.com/nilportugues/event-bus-queue/graphs/contributors)
+* [The Community Contributors](https://github.com/PHPMessageBus/event-bus-queue/graphs/contributors)
 
 
 ## License
