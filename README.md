@@ -5,7 +5,7 @@ This package is an extension library for `nilportugues/messagebus` that adds Pro
 This package will provide you for the classes necessary to build:
  
 - **The Producer**: code that sends the Event to a Queue by serializing the Event. This happens synchronously.
-- **The Consumer**: code that reads in the background, therefore asynchronously, from the Event from the Queue and passes it to the EventBus to do the heavy lifting.
+- **The Consumer**: code that reads in the background, therefore asynchronously, reads and unserializes the Event from the Queue and passes it to the EventBus to do the heavy lifting.
 
 ## Installation
 
