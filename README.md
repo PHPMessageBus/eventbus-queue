@@ -1,19 +1,25 @@
-# EventBus as a Queue
+# EventBus Queue
 
-To do so, you'll have to require an additional package: **EventBus Queue**.
-
-```
-composer require nilportugues/eventbus-queue
-```
+This package is an extension library for `nilportugues/messagebus` that adds Producer-Consumer queues to the EventBus implementation. 
 
 This package will provide you for the classes necessary to build:
  
 - **The Producer**: code that sends the Event to a Queue by serializing the Event. This happens synchronously.
 - **The Consumer**: code that reads in the background, therefore asynchronously, from the Event from the Queue and passes it to the EventBus to do the heavy lifting.
 
-This package will also provide a new middleware: `ProducerEventBusMiddleware`.   
+## Installation
 
-To where it may be serialized and store depends on the Queue Adapter used. Supported adapters are: 
+In order to start using this project you require to install it using composer
+
+```
+composer require nilportugues/eventbus-queue
+```
+
+## Usage
+
+This package will provide you with a new middleware: `ProducerEventBusMiddleware`.   
+
+This middleware requires a serializer and a storage that will depend on the Queue Adapter used. Supported adapters are: 
 
 - **PDOQueue**: queue built with a SQL database using Doctrine's DBAL.
 - **MongoDBQueue**: queue built with MongoDB library.
@@ -127,3 +133,29 @@ Consumer class will run the `consume` method until all events are consumed. Then
 
 If you need to keep the consumer running forever use server scripts like [supervisord](http://supervisord.org/). If you need to speed up consuming data you may spin up multiple consumer scripts. [supervisord](http://supervisord.org/) can handle this too.
 
+
+
+## Contribute
+
+Contributions to the package are always welcome!
+
+* Report any bugs or issues you find on the [issue tracker](https://github.com/nilportugues/event-bus-queue/issues/new).
+* You can grab the source code at the package's [Git repository](https://github.com/nilportugues/event-bus-queue).
+
+
+## Support
+
+Get in touch with me using one of the following means:
+
+ - Emailing me at <contact@nilportugues.com>
+ - Opening an [Issue](https://github.com/nilportugues/event-bus-queue/issues/new)
+
+
+## Authors
+
+* [Nil Portugués Calderó](http://nilportugues.com)
+* [The Community Contributors](https://github.com/nilportugues/event-bus-queue/graphs/contributors)
+
+
+## License
+The code base is licensed under the [MIT license](LICENSE).
