@@ -79,7 +79,8 @@ We will also like to store events that could not be handled or raised an excepti
 
 This could be as simple as follows:
 
-```
+```php
+<?php
 //This is our ConsumerEventBus. 
 $container['ConsumerEventBus'] = function() use ($container) {
     return new \NilPortugues\MessageBus\EventBus\QueryBus([
