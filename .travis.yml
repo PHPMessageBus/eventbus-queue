@@ -23,7 +23,8 @@ addons:
     
 before_script:
   - sudo apt-get install beanstalkd 
-  - sudo echo "BEANSTALKD_LISTEN_ADDR=127.0.0.1" >> /etc/default/beanstalkd && sudo echo "BEANSTALKD_LISTEN_PORT=11300" >> /etc/default/beanstalkd && sudo service beanstalkd restart
+  - sudo chmod 777 /etc/default/beanstalkd
+  - echo "BEANSTALKD_LISTEN_ADDR=127.0.0.1" >> /etc/default/beanstalkd && echo "BEANSTALKD_LISTEN_PORT=11300" >> /etc/default/beanstalkd && sudo service beanstalkd restart
   - echo 'extension="mongodb.so"' >> myconfig.ini && echo 'extension="redis.so"' >> myconfig.ini && phpenv config-add myconfig.ini
   - curl -sS https://getcomposer.org/installer | php -- --filename=composer
   - chmod +x composer
