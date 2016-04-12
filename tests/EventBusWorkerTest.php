@@ -10,8 +10,6 @@ use NilPortugues\MessageBus\EventBusQueue\Adapters\FileSystemQueue;
 use NilPortugues\MessageBus\EventBusQueue\EventBusWorker;
 use NilPortugues\MessageBus\EventBusQueue\ProducerEventBusMiddleware;
 use NilPortugues\MessageBus\Serializer\NativeSerializer;
-use NilPortugues\Tests\MessageBus\EventBus\DummyEvent;
-use NilPortugues\Tests\MessageBus\EventBus\DummyEventHandler;
 
 class EventBusWorkerTest extends \PHPUnit_Framework_TestCase
 {

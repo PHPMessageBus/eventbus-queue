@@ -13,7 +13,7 @@ namespace NilPortugues\Tests\MessageBus\EventBusQueue\Adapters;
 use MongoDB\Client;
 use NilPortugues\MessageBus\EventBusQueue\Adapters\MongoQueue;
 use NilPortugues\MessageBus\Serializer\NativeSerializer;
-use NilPortugues\Tests\MessageBus\EventBus\DummyEvent;
+use NilPortugues\Tests\MessageBus\EventBusQueue\DummyEvent;
 
 class MongoQueueTest extends \PHPUnit_Framework_TestCase
 {

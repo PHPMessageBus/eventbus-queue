@@ -12,15 +12,15 @@ namespace NilPortugues\Tests\MessageBus\EventBusQueue\Adapters;
 
 use NilPortugues\MessageBus\EventBusQueue\Adapters\PredisQueue;
 use NilPortugues\MessageBus\Serializer\NativeSerializer;
-use NilPortugues\Tests\MessageBus\EventBus\DummyEvent;
+use NilPortugues\Tests\MessageBus\EventBusQueue\DummyEvent;
 use Predis\Client;
 
 class PredisQueueTest extends \PHPUnit_Framework_TestCase
 {
-    /** @var Redis */
+    /** @var \Predis\Client */
     protected $producerConnection;
 
-    /** @var Redis */
+    /** @var \Predis\Client */
     protected $consumerConnection;
 
     /** @var NativeSerializer */

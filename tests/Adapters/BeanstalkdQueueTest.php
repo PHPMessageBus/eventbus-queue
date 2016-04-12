@@ -12,7 +12,7 @@ namespace NilPortugues\Tests\MessageBus\EventBusQueue\Adapters;
 
 use NilPortugues\MessageBus\EventBusQueue\Adapters\BeanstalkdQueue;
 use NilPortugues\MessageBus\Serializer\NativeSerializer;
-use NilPortugues\Tests\MessageBus\EventBus\DummyEvent;
+use NilPortugues\Tests\MessageBus\EventBusQueue\DummyEvent;
 use Pheanstalk\Pheanstalk;
 
 class BeanstalkdQueueTest extends \PHPUnit_Framework_TestCase
