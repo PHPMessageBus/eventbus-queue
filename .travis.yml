@@ -22,6 +22,7 @@ addons:
     - mongodb-org-server
     
 before_script:
+  - sudo apt-get install beanstalkd 
   - curl -sS https://getcomposer.org/installer | php -- --filename=composer
   - chmod +x composer
   - composer install
