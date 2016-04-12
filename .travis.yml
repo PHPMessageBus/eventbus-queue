@@ -3,6 +3,9 @@ php:
   - "7.0"
 
 before_script:
+  - apt-get install rabbitmq-server beanstalkd redis-server
+  - pecl install mongo
+  - pecl install redis
   - curl -sS https://getcomposer.org/installer | php -- --filename=composer
   - chmod +x composer
   - composer install
