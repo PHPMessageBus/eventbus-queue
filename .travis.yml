@@ -1,11 +1,15 @@
 language: php
 php:
   - "7.0"
+services:
+  - beanstalkd
+  - mongodb
+  - memcached
+  - redis-server
+  - rabbitmq-server
+    
 sudo: required
 before_script:
-  - sudo apt-get install rabbitmq-server beanstalkd redis-server
-  - sudo pecl install mongo
-  - sudo pecl install redis
   - curl -sS https://getcomposer.org/installer | php -- --filename=composer
   - chmod +x composer
   - composer install
