@@ -1,8 +1,29 @@
-language: php
-php:
-  - "7.0"
+sudo: required
 
+language: php
+
+php:
+  - 7
+  
+matrix:
+  fast_finish: true
+  
+services:
+  - beanstalkd
+  - mongodb
+  - redis-server
+  - rabbitmq-server
+  
+addons:
+  apt:
+    sources:
+    - mongodb-3.0-precise
+    packages:
+    - mongodb-org-server
+    
 before_script:
+  - sudo apt-get install beanstalkd 
+  - echo 'extension="mongodb.so"' >> myconfig.ini && echo 'extension="redis.so"' >> myconfig.ini && phpenv config-add myconfig.ini
   - curl -sS https://getcomposer.org/installer | php -- --filename=composer
   - chmod +x composer
   - composer install

@@ -22,16 +22,12 @@ class NullEvent implements Event
      */
     private static $instance;
 
-    /** @var string */
-    private $id;
-
     /**
      * Protected constructor to prevent creating a new instance of the
      * *Singleton* via the `new` operator from outside of this class.
      */
     protected function __construct()
     {
-        $this->id = uniqid();
     }
 
     /**
