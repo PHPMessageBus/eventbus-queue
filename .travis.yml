@@ -24,7 +24,7 @@ addons:
 before_script:
   - sudo apt-get install beanstalkd 
   - pecl install mongodb
-  - if [[ $TRAVIS_PHP_VERSION =~ (^7|^nightly) ]]; then wget https://github.com/nicolasff/phpredis/archive/php7.zip && unzip php7.zip && cd phpredis-php7 && phpize && ./configure && make && make install; fi
+  - if [[ $TRAVIS_PHP_VERSION =~ (^7|^nightly) ]]; then wget https://github.com/nicolasff/phpredis/archive/php7.zip && unzip php7.zip && cd phpredis-php7 && phpize && ./configure && make && make install; cd ..; fi
   - curl -sS https://getcomposer.org/installer | php -- --filename=composer
   - chmod +x composer
   - composer install
