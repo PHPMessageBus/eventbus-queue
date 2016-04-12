@@ -10,6 +10,9 @@ services:
     
 sudo: required
 before_script:
+  - sudo apt-get install php*-dev
+  - sudo pecl install mongo
+  - sudo pecl install redis
   - curl -sS https://getcomposer.org/installer | php -- --filename=composer
   - chmod +x composer
   - composer install
