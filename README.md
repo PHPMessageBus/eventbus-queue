@@ -1,5 +1,8 @@
 # EventBus Queue
 
+[![Build Status](https://travis-ci.org/PHPRepository/eventbus-queue.svg)](https://travis-ci.org/PHPRepository/eventbus-queue) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/PHPMessageBus/eventbus-queue/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/PHPMessageBus/eventbus-queue/?branch=master) [![SensioLabsInsight](https://insight.sensiolabs.com/projects/b6284e28-ca76-4836-b120-2341b168a7db/mini.png?gold)](https://insight.sensiolabs.com/projects/b6284e28-ca76-4836-b120-2341b168a7db) [![Latest Stable Version](https://poser.pugx.org/nilportugues/eventbus-queue/v/stable?)](https://packagist.org/packages/nilportugues/eventbus-queue) [![Total Downloads](https://poser.pugx.org/nilportugues/eventbus-queue/downloads?)](https://packagist.org/packages/nilportugues/eventbus-queue) [![License](https://poser.pugx.org/nilportugues/eventbus-queue/license?)](https://packagist.org/packages/nilportugues/eventbus-queue)
+[![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://paypal.me/nilportugues)
+
 This package is an extension library for `nilportugues/messagebus` that adds Producer-Consumer queues to the EventBus implementation. 
 
 This package will provide you for the classes necessary to build:
