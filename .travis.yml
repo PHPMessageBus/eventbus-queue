@@ -1,17 +1,27 @@
+sudo: required
+
 language: php
+
 php:
   - 7
+  
+matrix:
+  fast_finish: true
   
 services:
   - beanstalkd
   - mongodb
-  - memcached
   - redis-server
   - rabbitmq-server
-
+  
+addons:
+  apt:
+    sources:
+    - mongodb-3.0-precise
+    packages:
+    - mongodb-org-server
+    
 before_script:
-  - pecl install mongo
-  - pecl install redis
   - curl -sS https://getcomposer.org/installer | php -- --filename=composer
   - chmod +x composer
   - composer install
