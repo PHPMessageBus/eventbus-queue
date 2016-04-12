@@ -2,6 +2,8 @@
   "name": "nilportugues/eventbus-queue",
   "description": "Event Bus Queue library. Allows implementing asynchronous Event Bus.",
   "type": "library",
+  "homepage": "http://nilportugues.com",
+  "license": "MIT",  
   "authors": [
     {
       "name": "Nil Portugués Calderó",
