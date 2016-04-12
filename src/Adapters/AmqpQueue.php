@@ -54,6 +54,7 @@ class AmqpQueue implements Queue
      */
     public function push(Event $event)
     {
+        $this->declareQueue();
         $this->amqpChannel->basic_publish(
             new AMQPMessage($this->serializer->serialize($event), ['delivery_mode' => 2]),
             '',
