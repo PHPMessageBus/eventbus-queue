@@ -5,7 +5,7 @@
  
  - [Installation](#installation)
  - [Usage](#usage)
- - [Adapter Configurations](#queue-adapter-configurations)
+ - [Adapter Configurations](#adapter-configurations)
     - [PDOQueue](#pdoqueue)
     - [MongoDBQueue](#mongodbqueue)
     - [RedisQueue](#redisqueue)
