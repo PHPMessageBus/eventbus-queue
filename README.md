@@ -5,6 +5,14 @@
  
  - [Installation](#installation)
  - [Usage](#usage)
+ - [Adapter Configurations](#queue-adapter-configurations)
+    - [PDOQueue](#pdoqueue)
+    - [MongoDBQueue](#mongodbqueue)
+    - [RedisQueue](#redisqueue)
+    - [PredisQueue](#predisqueue)
+    - [FileSystemQueue](#filesystemqueue)
+    - [AmqpQueue](#amqpqueue)
+    - [BeanstalkdQueue](#beanstalkdqueue)
  - [Contribute](#contribute)
  - [Support](#support)
  - [Authors](#authors)
@@ -35,9 +43,9 @@ This middleware requires a serializer and a storage that will depend on the Queu
 - **MongoDBQueue**: queue built with MongoDB library.
 - **RedisQueue**: queue using the Redis PHP extension.
 - **PredisQueue**: queue using the Predis library.
-- **FileSystem**: queue built with using the local file system.
-- **Amqp**: use RabbitMQ or any queue implementing the Amqp protocol.
-- **Beanstalkd**: use Beanstalk as queue.
+- **FileSystemQueue**: queue built with using the local file system.
+- **AmqpQueue**: use RabbitMQ or any queue implementing the Amqp protocol.
+- **BeanstalkdQueue**: use Beanstalk as queue.
 
 To set it up, register the `ProducerEventBusMiddleware` to the Event Bus. Because we'll need to define a second EventBus (consumer), we'll call this the `ProducerEventBus`.
 
@@ -176,6 +184,63 @@ sudo supervisorctl reread
 sudo supervisorctl update
 sudo supervisorctl start my_worker
 ```
+
+## Adapter Configurations
+
+#### PDOQueue
+
+For this to work, you'll be required to create a table in your database. 
+
+For instance, sqlite dialect table creation would be: 
+
+```sql
+CREATE TABLE testAdapterQueue (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  event_data TEXT NOT NULL,
+  event_status CHAR(50),
+  created_at INTEGER NOT NULL
+);
+```
+
+#### MongoDBQueue
+
+In order to use it, you require to install PHP 7's mongodb extension. 
+
+```
+sudo pecl install mongodb
+```
+
+#### RedisQueue
+
+In order to use it, you require to install PHP 7's phpredis extension. 
+
+```
+# Build Redis PHP module
+git clone -b php7 https://github.com/phpredis/phpredis.git
+sudo mv phpredis/ /etc/ && \
+cd /etc/phpredis \
+phpize \
+./configure \
+make && make install \
+touch /etc/php/7.0/mods-available/redis.ini \
+echo 'extension=redis.so' > /etc/php/7.0/mods-available/redis.ini
+```
+
+#### PredisQueue
+
+Nothing, but performs better if phpredis extension is found.
+
+#### FileSystemQueue
+
+Nothing to do. 
+
+#### AmqpQueue
+
+Nothing to do other than having access to a amqp server.
+
+#### Beanstalkd
+
+Nothing to do other than having access to a beanstalkd server.
 
 ## Contribute
 
