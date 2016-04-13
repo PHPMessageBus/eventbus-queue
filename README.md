@@ -49,7 +49,7 @@ This middleware requires a serializer and a storage that will depend on the Queu
 
 To set it up, register the `ProducerEventBusMiddleware` to the Event Bus. Because we'll need to define a second EventBus (consumer), we'll call this the `ProducerEventBus`.
 
-**ProducerEventBus**
+#### ProducerEventBus
 
 ```php
 <?php
@@ -95,7 +95,7 @@ $container['ProducerEventBus'] = function() use ($container) {
 };
 ```
 
-**Consumer for the ProducerEventBus**
+#### Consumer for the ProducerEventBus
 
 The Consumer will need to be a script that reads the EventBus definitions and subscribed events in order to run until all events are handled. To do so, we'll need to register a new `EventBus` we'll refer as `ConsumerEventBus`. 
 
@@ -129,7 +129,7 @@ $container['ErrorQueue'] = function() use ($container) {
 
 ```
 
-**The Consumer code**
+#### The Consumer code
 
 Finally, we'll have to call a consumer. This package already provides a fully working consumer implementation: `EventBusWorker`.
 
@@ -151,7 +151,7 @@ Consumer class will run the `consume` method until all events are consumed. Then
 
 If you need to keep the consumer running forever use server scripts like [Supervisor](http://supervisord.org/). 
 
-**Supervisor Configuration**
+#### Supervisor Configuration
 
 Supervisor is a process monitor for the Linux operating system, and will automatically restart your workers if they fail. To install Supervisor on Ubuntu, you may use the following command:
 
