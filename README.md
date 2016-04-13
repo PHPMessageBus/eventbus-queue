@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/PHPMessageBus/eventbus-queue.svg?branch=master)](https://travis-ci.org/PHPMessageBus/eventbus-queue) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/PHPMessageBus/eventbus-queue/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/PHPMessageBus/eventbus-queue/?branch=master) [![SensioLabsInsight](https://insight.sensiolabs.com/projects/3e4f3e13-a8c1-4f1e-a5ad-42e799915dfe/mini.png?gold)](https://insight.sensiolabs.com/projects/3e4f3e13-a8c1-4f1e-a5ad-42e799915dfe) [![Latest Stable Version](https://poser.pugx.org/nilportugues/eventbus-queue/v/stable?)](https://packagist.org/packages/nilportugues/eventbus-queue) [![Total Downloads](https://poser.pugx.org/nilportugues/eventbus-queue/downloads?)](https://packagist.org/packages/nilportugues/eventbus-queue) [![License](https://poser.pugx.org/nilportugues/eventbus-queue/license?)](https://packagist.org/packages/nilportugues/eventbus-queue)
 [![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://paypal.me/nilportugues)
 
-This package is an extension library for `nilportugues/messagebus` adding Producer-Consumer queues to the EventBus implementation. 
+This package is an extension library for **[nilportugues/messagebus](http://github.com/PHPMessageBus/messagebus)**, adding queues to the EventBus implementation. 
 
 This package will provide you for the classes necessary to build:
  
@@ -122,7 +122,7 @@ Use it as follows:
 
 ```php
 <?php
-//...
+//... your $container should be available here.
 
 $consumer = NilPortugues\MessageBus\EventBusQueue\EventBusWorker();
 $consumer->consume(
@@ -134,9 +134,41 @@ $consumer->consume(
 
 Consumer class will run the `consume` method until all events are consumed. Then it will exit. This is optimal to make sure it will not leak memory.
 
-If you need to keep the consumer running forever use server scripts like [supervisord](http://supervisord.org/). If you need to speed up consuming data you may spin up multiple consumer scripts. [supervisord](http://supervisord.org/) can handle this too.
+If you need to keep the consumer running forever use server scripts like [Supervisor](http://supervisord.org/). 
 
+**Supervisor Configuration**
 
+Supervisor is a process monitor for the Linux operating system, and will automatically restart your workers if they fail. To install Supervisor on Ubuntu, you may use the following command:
+
+```sh
+sudo apt-get install supervisor
+```
+
+Supervisor configuration files are typically stored in the `/etc/supervisor/conf.d` directory. Within this directory, you may create any number of configuration files that instruct how your processes should be monitored. 
+
+For instance, let's create `/etc/supervisor/conf.d/my_worker.conf` so that it starts and monitors a worker script named `my_worker.php`:
+
+```ini
+[program:my_worker]
+process_name=%(program_name)s_%(process_num)02d
+command=php my_worker.php
+autostart=true
+autorestart=true
+user=www-data
+numprocs=20
+redirect_stderr=true
+stdout_logfile=/var/logs/my_worker.log
+```
+
+In this file, we tell Supervisor that we want 20 instances always running. If the `my_worker.php` ends or fails it will spin up a new one.
+
+In order to make this task run forever, you'll have to type in the following commands: 
+
+```sh
+sudo supervisorctl reread
+sudo supervisorctl update
+sudo supervisorctl start my_worker
+```
 
 ## Contribute
 
