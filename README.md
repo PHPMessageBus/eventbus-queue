@@ -5,6 +5,9 @@
  
  - [Installation](#installation)
  - [Usage](#usage)
+    -  [ProducerEventBus](#producereventbus)
+    -  [Consumer for the ProducerEventBus](#consumer-for-the-producereventbus)
+    -  [EventBusWorker](#eventbusworker)
  - [Adapter Configurations](#adapter-configurations)
     - [PDOQueue](#pdoqueue)
     - [MongoDBQueue](#mongodbqueue)
@@ -129,7 +132,7 @@ $container['ErrorQueue'] = function() use ($container) {
 
 ```
 
-#### The Consumer code
+#### EventBusWorker
 
 Finally, we'll have to call a consumer. This package already provides a fully working consumer implementation: `EventBusWorker`.
 
@@ -139,7 +142,7 @@ Use it as follows:
 <?php
 //... your $container should be available here.
 
-$consumer = NilPortugues\MessageBus\EventBusQueue\EventBusWorker();
+$consumer = \NilPortugues\MessageBus\EventBusQueue\EventBusWorker();
 $consumer->consume(
     $container->get('EventBusQueueAdapter'), 
     $container->get('ErrorQueue'), 
