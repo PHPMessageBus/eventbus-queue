@@ -13,7 +13,7 @@
   "require": {
     "php": ">=7",
     "nilportugues/uuid": "^1.0",
-    "nilportugues/messagebus" : "dev-master"
+    "nilportugues/messagebus" : "^1.0"
   },
   "require-dev": {
     "ext-redis" : "*",
