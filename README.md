@@ -175,7 +175,7 @@ autorestart=true
 user=www-data
 numprocs=20
 redirect_stderr=true
-stdout_logfile=/var/logs/my_worker.log
+stdout_logfile=/var/log/my_worker.log
 ```
 
 In this file, we tell Supervisor that we want 20 instances always running. If the `my_worker.php` ends or fails it will spin up a new one.
