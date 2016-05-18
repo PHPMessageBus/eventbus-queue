@@ -90,7 +90,7 @@ $container['ProducerEventBusMiddleware'] = function() use ($container) {
 
 //This is our ProducerEventBus. 
 $container['ProducerEventBus'] = function() use ($container) {
-    return new \NilPortugues\MessageBus\EventBus\QueryBus([
+    return new \NilPortugues\MessageBus\EventBus\EventBus([
         $container['LoggerEventBusMiddleware'],
         $container['ProducerEventBusMiddleware'],
         $container['EventBusMiddleware'],
@@ -110,7 +110,7 @@ This could be as simple as follows:
 <?php
 //This is our ConsumerEventBus. 
 $container['ConsumerEventBus'] = function() use ($container) {
-    return new \NilPortugues\MessageBus\EventBus\QueryBus([
+    return new \NilPortugues\MessageBus\EventBus\EventBus([
         $container['LoggerEventBusMiddleware'],
         $container['EventBusMiddleware'],
     ]);
