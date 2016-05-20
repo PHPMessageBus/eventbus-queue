@@ -47,7 +47,6 @@ class AmqpQueueTest extends \PHPUnit_Framework_TestCase
         $event = new DummyEvent();
         $this->producer->push($event);
 
-        $this->assertTrue($this->producer->hasElements());
         $this->assertEquals($event, $this->consumer->pop());
     }
 
