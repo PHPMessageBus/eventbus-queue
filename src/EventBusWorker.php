@@ -16,11 +16,12 @@ class EventBusWorker implements Worker
      */
     public function consume(Queue $consumerQueue, Queue $errorQueue, EventBusMiddleware $worker)
     {
-        while ($consumerQueue->hasElements()) {
+        while ($event = $consumerQueue->pop()) {
             try {
-                $event = $consumerQueue->pop();
                 if (false === $event instanceof NullEvent) {
                     $worker($event);
+                } else {
+                    break;
                 }
             } catch (Exception $e) {
                 if (!empty($event) && (false === $event instanceof NullEvent)) {
