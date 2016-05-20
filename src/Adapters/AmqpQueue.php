@@ -73,6 +73,10 @@ class AmqpQueue implements Queue
         $this->declareQueue();
         $message = $this->amqpChannel->basic_get($this->queueName);
 
+        if (!empty($message)) {
+            $this->amqpChannel->basic_ack($message->delivery_info['delivery_tag']);
+        }
+
         return ($message) ? $this->serializer->unserialize($message->body) : NullEvent::create();
     }
 
@@ -85,10 +89,9 @@ class AmqpQueue implements Queue
     {
         $hasElements = false;
 
-        $event = $this->pop();
-        if (false === $event instanceof NullEvent) {
+        $message = $this->amqpChannel->basic_get($this->queueName);
+        if ($message) {
             $hasElements = true;
-            $this->push($event);
         }
 
         return $hasElements;
