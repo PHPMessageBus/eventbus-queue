@@ -92,8 +92,7 @@ $container['ProducerEventBusMiddleware'] = function() use ($container) {
 $container['ProducerEventBus'] = function() use ($container) {
     return new \NilPortugues\MessageBus\EventBus\EventBus([
         $container['LoggerEventBusMiddleware'],
-        $container['ProducerEventBusMiddleware'],
-        $container['EventBusMiddleware'],
+        $container['ProducerEventBusMiddleware']
     ]);
 };
 ```
