@@ -26,7 +26,7 @@ before_script:
   - sudo chmod 777 /etc/default/beanstalkd
   - echo "START=yes" >> /etc/default/beanstalkd && echo "BEANSTALKD_LISTEN_ADDR=127.0.0.1" >> /etc/default/beanstalkd && echo "BEANSTALKD_LISTEN_PORT=11300" >> /etc/default/beanstalkd && sudo service beanstalkd restart
   - echo 'extension="mongodb.so"' >> myconfig.ini && echo 'extension="redis.so"' >> myconfig.ini && phpenv config-add myconfig.ini
-  - wget -O gnatsd.zip https://github.com/nats-io/gnatsd/releases/download/v0.8.0/gnatsd-v0.8.0-linux-amd64.zip && unzip gnatsd.zip && mv gnatsd/gnatsd /usr/bin/
+  - wget -O gnatsd.zip https://github.com/nats-io/gnatsd/releases/download/v0.8.0/gnatsd-v0.8.0-linux-amd64.zip && unzip gnatsd.zip && mv gnatsd-*-linux-amd64 gnatsd && sudo mv gnatsd/gnatsd /usr/bin/
   - curl -sS https://getcomposer.org/installer | php -- --filename=composer
   - chmod +x composer
   - composer install
