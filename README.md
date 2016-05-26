@@ -28,6 +28,13 @@ This package will provide you for the classes necessary to build:
 - **The Producer**: code that sends the Event to a Queue by serializing the Event. This happens synchronously.
 - **The Consumer**: code that reads in the background, therefore asynchronously, reads and unserializes the Event from the Queue and passes it to the EventBus to do the heavy lifting.
 
+
+## Why? 
+
+It's all about deciding which command logic can be delayed, or hidden away in order to make it faster. And this is what we want to do.
+
+**You never remove a bottleneck, you just move it.** The downside is that we might have to assume a possible delay.
+
 ## Installation
 
 In order to start using this project you require to install it using [Composer](https://getcomposer.org):
